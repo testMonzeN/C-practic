@@ -1,4 +1,4 @@
-﻿(bool, int) numberCheck(int min, int max) {
+﻿static (bool, int) numberCheck(int min, int max) {
     bool status = int.TryParse(Console.ReadLine(), out int number);
     if (status == true && min <= number && number <= max)
     {
@@ -6,6 +6,11 @@
     }
 
     return (false, 0);
+}
+
+static double AverageScore(int c_students, int[] student_points)
+{
+    return (double)student_points.Sum() / c_students;
 }
 
 
@@ -16,7 +21,6 @@ do
 }
 while (numberCheck(1, 50).Item1 == false);
 
-c_students = numberCheck(1, 50).Item2;
 int[] student_points = new int[c_students];
 
 int max = 0;
@@ -30,6 +34,7 @@ int c_great = 0;
 int count = 0;
 double averageScore = 0;
 
+c_students = numberCheck(1, 50).Item2;
 for (int student_number = 0; student_number < c_students; student_number++)
 {
     do
@@ -66,7 +71,7 @@ for (int student_number = 0; student_number < c_students; student_number++)
 }
 
 
-averageScore = (double)student_points.Sum() / c_students;
+averageScore = AverageScore(c_students, student_points);
 foreach (int point in student_points)
 {
     if (point > averageScore) { count++; }
