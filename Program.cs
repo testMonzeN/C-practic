@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-(bool, int) numberCheck(int min, int max) {
+﻿(bool, int) numberCheck(int min, int max) {
     bool status = int.TryParse(Console.ReadLine(), out int number);
     if (status == true && min <= number && number <= max)
     {
@@ -32,7 +30,7 @@ int c_great = 0;
 int count = 0;
 double averageScore = 0;
 
-for (int student_number = 0; student_number < c_students; i++)
+for (int student_number = 0; student_number < c_students; student_number++)
 {
     do
     {
