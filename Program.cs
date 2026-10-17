@@ -1,7 +1,7 @@
 ﻿class Program
 {
 
-    public static(bool, int) numberCheck(int min, int max)
+    private static (bool, int) numberCheck(int min, int max)
     {
         bool status = int.TryParse(Console.ReadLine(), out int number);
         if (status == true && min <= number && number <= max)
@@ -12,12 +12,12 @@
         return (false, 0);
     }
 
-    public static double AverageScore(int c_students, int[] student_points)
+    private static double AverageScore(int c_students, int[] student_points)
     {
         return (double)student_points.Sum() / c_students;
     }
 
-    public static void Main(string[] args)
+    public static void Main()
     {
         int c_students, ball;
         do
