@@ -1,13 +1,25 @@
-﻿int count_student, ball;
+﻿(bool, int) numberCheck(int min, int max) {
+    bool status = int.TryParse(Console.ReadLine(), out int number);
+    if (status == true && min <= number && number <= max)
+    {
+        return (true, number);
+    }
+
+    return (false, 0);
+}
+
+
+int count_student, ball;
 while (true)
 {
     Console.Write("Введите число (1..50): ");
-    bool status_count = int.TryParse(Console.ReadLine(), out count_student);
-    if (status_count == true && 1 <= count_student && count_student <= 50)
+    if (numberCheck(1, 50).Item1 == true)
     {
         break;
     }
+
 }
+count_student = numberCheck(1, 50).Item2;
 int[] balls_student = new int[count_student];
 
 int max = 0;
@@ -26,14 +38,13 @@ for (int i = 0; i < count_student; i++)
     while (true)
     {
         Console.Write($"Балл студента {i + 1} (0..100): ");
-        bool status_code = int.TryParse(Console.ReadLine(), out ball);
-
-        if (status_code == true && 0 <= ball && ball <= 100)
+        if (numberCheck(0, 100).Item1 == true)
         {
             break;
-
         }
     }
+
+    ball = numberCheck(1, 100).Item2;
     balls_student[i] = ball;
 
     if (ball > max)
@@ -58,9 +69,9 @@ for (int i = 0; i < count_student; i++)
     {
         count_otl += 1;
     }
-
-
 }
+
+
 sr_ball = (double)balls_student.Sum() / count_student;
 for (int j = 0; j < count_student; j++)
 {
