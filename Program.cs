@@ -19,16 +19,16 @@ int count_horosho = 0;
 int count_otl = 0;
 
 int count = 0;
-float sr_ball = 0;
+double sr_ball = 0;
 
 for (int i = 0; i < count_student; i++)
 {
     while (true)
     {
         Console.Write($"Балл студента {i + 1} (0..100): ");
-        bool status_ball = int.TryParse(Console.ReadLine(), out ball);
+        bool status_code = int.TryParse(Console.ReadLine(), out ball);
 
-        if (status_ball == true && 0 <= ball && ball <= 100)
+        if (status_code == true && 0 <= ball && ball <= 100)
         {
             break;
 
@@ -61,7 +61,7 @@ for (int i = 0; i < count_student; i++)
 
 
 }
-sr_ball = (float)balls_student.Sum() / count_student;
+sr_ball = (double)balls_student.Sum() / count_student;
 for (int j = 0; j < count_student; j++)
 {
     if (balls_student[j] > sr_ball) { count++; }
