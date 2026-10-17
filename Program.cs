@@ -1,4 +1,6 @@
-﻿(bool, int) numberCheck(int min, int max) {
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+(bool, int) numberCheck(int min, int max) {
     bool status = int.TryParse(Console.ReadLine(), out int number);
     if (status == true && min <= number && number <= max)
     {
@@ -30,21 +32,21 @@ int c_great = 0;
 int count = 0;
 double averageScore = 0;
 
-for (int i = 0; i < c_students; i++)
+for (int student_number = 0; student_number < c_students; i++)
 {
     do
     {
-        Console.Write($"Балл студента {i + 1} (0..100): ");
+        Console.Write($"Балл студента {student_number + 1} (0..100): ");
     }
     while (numberCheck(0, 100).Item1 == false);
 
     ball = numberCheck(1, 100).Item2;
-    student_points[i] = ball;
+    student_points[student_number] = ball;
 
     if (ball > max)
     {
         max = ball;
-        studen_have_max_ball = i + 1;
+        studen_have_max_ball = student_number + 1;
     }
 
     if (0 <= ball && ball <= 39)
