@@ -19,6 +19,7 @@ int count_horosho = 0;
 int count_otl = 0;
 
 int count = 0;
+float sr_ball = 0;
 
 for (int i = 0; i < count_student; i++)
 {
@@ -60,7 +61,7 @@ for (int i = 0; i < count_student; i++)
 
 
 }
-float sr_ball = (float)balls_student.Sum() / count_student;
+sr_ball = (float)balls_student.Sum() / count_student;
 for (int j = 0; j < count_student; j++)
 {
     if (balls_student[j] > sr_ball) { count++; }
