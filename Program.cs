@@ -12,7 +12,7 @@
         return (false, 0);
     }
 
-    private static double AverageScore(int c_students, int[] student_points)
+    private static double AverageScore(int[] student_points, int c_students)
     {
         return (double)student_points.Sum() / c_students;
     }
@@ -76,7 +76,7 @@
         }
 
 
-        averageScore = AverageScore(c_students, student_points);
+        averageScore = AverageScore(student_points, c_students);
         foreach (int point in student_points)
         {
             if (point > averageScore) { count++; }
