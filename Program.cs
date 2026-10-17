@@ -67,9 +67,9 @@ for (int i = 0; i < c_students; i++)
 
 
 averageScore = (double)student_points.Sum() / c_students;
-for (int j = 0; j < c_students; j++)
+foreach (int point in student_points)
 {
-    if (student_points[j] > averageScore) { count++; }
+    if (point > averageScore) { count++; }
 }
 
 
