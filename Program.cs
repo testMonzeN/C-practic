@@ -9,43 +9,37 @@
 }
 
 
-int count_student, ball;
-while (true)
+int c_students, ball;
+do
 {
     Console.Write("Введите число (1..50): ");
-    if (numberCheck(1, 50).Item1 == true)
-    {
-        break;
-    }
-
 }
-count_student = numberCheck(1, 50).Item2;
-int[] balls_student = new int[count_student];
+while (numberCheck(1, 50).Item1 == false);
+
+c_students = numberCheck(1, 50).Item2;
+int[] student_points = new int[c_students];
 
 int max = 0;
 int studen_have_max_ball = 0;
 
-int count_neud = 0;
-int count_ud = 0;
-int count_horosho = 0;
-int count_otl = 0;
+int с_bad = 0;
+int с_satisFactorily = 0;
+int с_success = 0;
+int c_great = 0;
 
 int count = 0;
-double sr_ball = 0;
+double averageScore = 0;
 
-for (int i = 0; i < count_student; i++)
+for (int i = 0; i < c_students; i++)
 {
-    while (true)
+    do
     {
         Console.Write($"Балл студента {i + 1} (0..100): ");
-        if (numberCheck(0, 100).Item1 == true)
-        {
-            break;
-        }
     }
+    while (numberCheck(0, 100).Item1 == false);
 
     ball = numberCheck(1, 100).Item2;
-    balls_student[i] = ball;
+    student_points[i] = ball;
 
     if (ball > max)
     {
@@ -55,36 +49,36 @@ for (int i = 0; i < count_student; i++)
 
     if (0 <= ball && ball <= 39)
     {
-        count_neud += 1;
+        с_bad += 1;
     }
     else if (40 <= ball && ball <= 59)
     {
-        count_ud += 1;
+        с_satisFactorily += 1;
     }
     else if (60 <= ball && ball <= 79)
     {
-        count_horosho += 1;
+        с_success += 1;
     }
     else if (80 <= ball && ball <= 100)
     {
-        count_otl += 1;
+        c_great += 1;
     }
 }
 
 
-sr_ball = (double)balls_student.Sum() / count_student;
-for (int j = 0; j < count_student; j++)
+averageScore = (double)student_points.Sum() / c_students;
+for (int j = 0; j < c_students; j++)
 {
-    if (balls_student[j] > sr_ball) { count++; }
+    if (student_points[j] > averageScore) { count++; }
 }
 
 
-Console.WriteLine("Средний балл: " + sr_ball.ToString());
-Console.WriteLine("Лучший результат: " + max.ToString() + $" (студент #{studen_have_max_ball.ToString()})");
-Console.WriteLine($"Выше среднего: {count} из {count_student} \n");
+Console.WriteLine("Средний балл: " + averageScore);
+Console.WriteLine("Лучший результат: " + max + $" (студент #{studen_have_max_ball})");
+Console.WriteLine($"Выше среднего: {count} из {c_students} \n");
 Console.WriteLine("Распределение оценок");
-Console.WriteLine("неуд.    (0-39)      | " + new string('*', count_neud) + " " + count_neud.ToString());
-Console.WriteLine("удовл.   (40-59)     | " + new string('*', count_ud) + " " + count_ud.ToString());
-Console.WriteLine("хор.     (60-79)     | " + new string('*', count_horosho) + " " + count_horosho.ToString());
-Console.WriteLine("отл.     (80-100)    | " + new string('*', count_otl) + " " + count_otl.ToString());
+Console.WriteLine("неуд.    (0-39)      | " + new string('*', с_bad) + " " + с_bad);
+Console.WriteLine("удовл.   (40-59)     | " + new string('*', с_satisFactorily) + " " + с_satisFactorily);
+Console.WriteLine("хор.     (60-79)     | " + new string('*', с_success) + " " + с_success);
+Console.WriteLine("отл.     (80-100)    | " + new string('*', c_great) + " " + c_great);
 
